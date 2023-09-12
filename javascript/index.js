@@ -1,4 +1,13 @@
 setInterval(function () {
+  let colomboElement = document.querySelector("#colombo");
+  let colomboDateElement = colomboElement.querySelector(".date");
+  let colomboTimeElement = colomboElement.querySelector(".time");
+  let colomboTime = moment().tz("Asia/Colombo");
+  colomboDateElement.innerHTML = moment().format("Do MMMM YYYY");
+  colomboTimeElement.innerHTML = colomboTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
+
   let losAngelesElement = document.querySelector("#los-angeles");
   let losAngelesDateElement = losAngelesElement.querySelector(".date");
   let losAngelesTimeElement = losAngelesElement.querySelector(".time");
@@ -33,7 +42,8 @@ function updateCity(event) {
           <div class="time">${cityTime.format(
             "h:mm:ss"
           )} <small>${cityTime.format("A")}</small></div>
-        </div>`;
+        </div>
+        <small><a href="/"> Home Page </a></small>`;
 }
 
 let citiesSelectElement = document.querySelector("#city");
